@@ -1,0 +1,820 @@
+/* Шрифты */
+@font-face {
+  font-family: 'Muller';
+  src: url('../fonts/MullerBold.woff2') format('woff2'),
+    url('fonts/MullerBold.woff') format('woff');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url('../fonts/MullerMedium.woff2') format('woff2'),
+    url('fonts/MullerMedium.woff') format('woff');
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url('../fonts/MullerRegular.woff2') format('woff2'),
+    url('fonts/MullerRegular.woff') format('woff');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url('../fonts/MullerLight.woff2') format('woff2'),
+    url('fonts/MullerLight.woff') format('woff');
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Общие стили для всей страницы */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muller', sans-serif;
+  background-color: #F1F1F1;
+}
+
+:root {
+  --laguna-primary: #CC9933;
+  --white: #FFFFFF;
+  --light-gray: #E1E1E1;
+  --dark-gray: #333333;
+  --mute: #999999;
+}
+
+/* Здесь я задал всем ссылкам text-decoration: none; чтобы убрать подчёркивание */
+/* И задал его снова уже через :hover.  */
+a {
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0);
+  transition: text-decoration-color .3s linear;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration-color: inherit;
+}
+
+/* Здесь я задал нехитрую трансформацию углов border и сдвиг кнопки вверх на 1px, этакий эффект нажатия на кнопку */
+/* Плюс задал курсор "руку" для наглядности */
+button {
+  transition: transform 0.2s ease-in, border-radius 0.2s ease-in;
+}
+
+button:hover {
+  transform: translateY(-1.5px);
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+/* Здесь я задал всем спискам нулевой размер текста, чтобы убрать отступы */
+ul, ol {
+  font-size: 0px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.header {
+  padding: 30px 0 40px 0;
+  height: 225px;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1170px;
+}
+
+.container-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-between;
+  height: 100%;
+}
+
+/* Невидимый заголовок */
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+/* Логотип, телефон, ссылка */
+.header__logo {
+  margin-right: 40px;
+}
+
+.header__tel {
+  font-weight: 500;
+  font-size: 20px;
+  color: #666666;
+}
+
+.header__link {
+  margin-left: auto;
+  padding-left: 28px;
+  font-size: 16px;
+  color: var(--laguna-primary);
+  background: url(../img/arrow_login.svg) no-repeat left center;
+}
+
+/* Меню */
+.menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70px;
+  background-color: var(--white);
+  border-radius: 15px;
+}
+
+.menu__list {
+  display: flex;
+  align-items: center;
+}
+
+.menu__item {
+  margin-left: 45px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.btn {
+  min-width: 100px;
+  font-size: 16px;
+  line-height: 100%;
+  color: var(--laguna-primary);
+  border: 1px solid var(--laguna-primary);
+  border-radius: 10px;
+  background-color: var(--white);
+}
+
+.menu__buttons {
+  width: 430px;
+  border-left: 1px solid var(--light-gray);
+}
+
+.menu__button {
+  padding: 13px 20px;
+}
+
+.menu__button--tour {
+  margin-left: 60px;
+}
+
+.menu__button--call {
+  margin-left: 40px;
+}
+
+/* Оффер */
+.hero {
+  padding: 30px 0 40px 0;
+}
+
+/* title */
+.section-title {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 100%;
+  color: var(--dark-gray);
+}
+
+.hero__title {
+  margin: 0 0 20px 40px;
+}
+
+.hero__container {
+  display: flex;
+  align-items: stretch;
+  min-height: 540px;
+}
+
+.hero__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 47%;
+}
+
+.offer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0 40px 40px 40px;
+  max-width: 573px;
+  border-radius: 15px;
+  min-height: 258px;
+  z-index: 1;
+}
+
+.offer__title {
+  margin-bottom: 15px;
+  max-width: 300px;
+  font-size: 40px;
+  line-height: 100%;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.offer__price {
+  margin-bottom: 45px;
+  font-size: 20px;
+  line-height: 100%;
+  font-weight: 400;
+  color: var(--white);
+  opacity: 0.8;
+}
+
+.offer__link {
+  padding-right: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFCC66;
+  background: url(../img/services_arrow-right.svg) no-repeat 90px center;
+}
+
+.offer__link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  pointer-events: none;
+  border-radius: 15px;
+  background: linear-gradient(to top,rgba(48, 64, 89, 0.84) 0%,rgba(53, 65, 83, 0) 66.67%);
+  opacity: 0;
+  transition: opacity .3s linear;
+  z-index: -1;
+}
+
+.offer__link:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+
+.offer--big {
+  min-height: 540px;
+  flex: 1 1 47%;
+}
+
+.offer__title--big {
+  font-size: 60px;
+}
+
+.offer__price--big {
+  font-size: 30px;
+}
+
+.offer--lux {
+  background: url(../img/offer_lux.jpg) no-repeat;
+}
+
+.offer--maldives {
+  background: url(../img/offer_maldivi.jpg) no-repeat;
+}
+
+.offer--crete {
+  background: url(../img/offer_krit.jpg) no-repeat;
+}
+
+/* О нас */
+.about {
+  padding: 30px 0 40px 0;
+}
+
+.about__title {
+  margin: 0 0 10px 40px;
+}
+
+/* description */
+.section-description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 200%;
+  color: #000000;
+}
+
+.about__description {
+  max-width: 890px;
+}
+
+/* Услуги */
+.services {
+  padding: 30px 0 30px 0;
+}
+
+.services__title {
+  margin: 0 0 20px 40px;
+}
+
+.services__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.services__item {
+  flex: 1 1 50%;
+  padding: 190px 125px 50px 45px;
+  max-width: 570px;
+  min-height: 330px;
+  border-radius: 15px;
+}
+
+/* Так я решил вопрос - как прижать к правому краю второй столбец */
+.services__item:not(:nth-child(2n)) {
+  margin-right: auto;
+}
+
+.services__item:not(:nth-last-child(-n+2)) {
+  margin-bottom: 23px;
+}
+
+.services__item-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 200%;
+}
+
+.services__link {
+  padding-right: 15px;
+  color: var(--laguna-primary);
+  background: url(../img/services_arrow-right.svg) right center no-repeat;
+}
+
+.item--exclusive {
+  background: url(../img/services_fizz.jpg) no-repeat center top var(--white);
+}
+
+.item--banquet {
+  background: url(../img/services_banquet-hall.jpg) no-repeat center top var(--white);
+}
+
+.item--spa {
+  background: url(../img/services_pool.jpg) no-repeat center top var(--white);
+}
+
+.item--parking {
+  background: url(../img/services_cars.jpg) no-repeat center top var(--white);
+}
+
+/* Преимущества */
+.advantages {
+  padding: 40px 0 30px 0;
+}
+
+.advantages__title {
+  margin: 0 0 30px 40px;
+}
+
+.advantages__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.advantages__item {
+  flex: 1 1 25%;
+  padding: 115px 42px 41px 45px;
+  max-width: 275px;
+  min-height: 275px;
+  border-radius: 15px;
+  background-color: var(--white);
+}
+
+.advantages__item:not(:nth-child(4n)) {
+  margin-right: 23px;
+}
+
+.advantages__item:not(:nth-last-child(-n+4)) {
+  margin-bottom: 23px;
+}
+
+.advantages__item--bathtub {
+  background: url(../img/icon_bathtub.svg) no-repeat 45px 40px var(--white);
+}
+
+.advantages__item--hanger {
+  background: url(../img/icon_hanger.svg) no-repeat 45px 40px var(--white);
+}
+
+.advantages__item--heating {
+  background: url(../img/icon_heating.svg) no-repeat 45px 40px var(--white);
+}
+
+.advantages__item--hotel-key {
+  background: url(../img/icon_hotel-key.svg) no-repeat 45px 40px var(--white);
+}
+
+.advantages__item--parking {
+  background: url(../img/icon_parking.svg) no-repeat 45px 40px var(--white);
+}
+
+.advantages__item--reception {
+  background: url(../img/icon_reception.svg) no-repeat 45px 40px var(--white);
+}
+
+.advantages__item--security-box {
+  background: url(../img/icon_security-box.svg) no-repeat 45px 40px var(--white);
+}
+
+.advantages__item--swimming-pool {
+  background: url(../img/icon_swimming-pool.svg) no-repeat 45px 40px var(--white);
+}
+
+/* Размещение */
+.placement {
+  padding: 40px 0 30px 0;
+}
+
+.placement__title {
+  margin: 0 0 30px 40px;
+}
+
+.placement__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.placement__card {
+  max-width: 374px;
+  min-height: 440px;
+}
+
+.placement__card:not(:nth-child(3n)) {
+  margin-right: 23px;
+}
+
+.placement__card:not(:nth-last-child(-n+3)) {
+  margin-bottom: 23px;
+}
+
+.hotel {
+  border-radius: 15px;
+  background-color: var(--white);
+}
+
+.hotel__img {
+  border-radius: 15px 15px 0 0;
+}
+
+.hotel-content {
+  padding: 35px 45px 40px 45px;
+}
+
+.hotel__description {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+}
+
+.hotel__text--mute {
+  color: var(--mute);
+}
+
+.hotel__price {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+}
+
+.hotel__raiting {
+  margin-left: auto;
+}
+
+.hotel__title {
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+}
+
+.hotel__location {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+}
+
+.hotel__location--mute {
+  color: var(--mute);
+}
+
+.hotel__more-btn {
+  padding: 13px 20px 13px 20px;
+  font-weight: 400;
+}
+
+.placement__card--more {
+  position: relative;
+  padding: 370px 50px 20px 50px;
+  width: 374px;
+  border-radius: 15px;
+  background: url(../img/hotel_rocks.jpg) no-repeat;
+  z-index: 1;
+}
+
+.placement__link {
+  padding-right: 15px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 200%;
+  color: var(--white);
+  background: url(../img/hotel_arrow-right.svg) no-repeat right center;
+}
+
+.placement__link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity .3s linear;
+  z-index: -1;
+}
+
+.placement__link:hover::before {
+  border-radius: 15px;
+  background: linear-gradient(to top,rgba(48, 64, 89, 0.84) 0%,rgba(53, 65, 83, 0) 66.67%);
+  opacity: 1;
+}
+
+.tour {
+  padding: 40px 0 40px 0;
+}
+
+.container-tour {
+  padding: 40px 45px 70px 45px;
+  border-radius: 15px;
+  background: #E9E9E9;
+}
+
+.tour__title {
+  margin: 0 0 20px 0;
+}
+
+.tour__form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px;
+  max-width: 1080px;
+  border-radius: 15px;
+  background: var(--white);
+}
+
+.tour__label {
+  padding: 0 20px 0 0;
+  height: 50px;
+  font-size: 12px;
+  line-height: 100%;
+  border: 0 none;
+  border-right: 1px solid var(--light-gray);
+}
+
+.tour__input-label {
+  width: 145px;
+}
+
+.tour__select-label {
+  width: 190px;
+}
+
+.tour__label--date {
+  width: 160px;
+}
+
+.tour__select, .tour__input {
+  margin-top: 15px;
+  width: 100%;
+  font-size: 16px;
+  border: 0 none;
+}
+
+.tour__select {
+  position: relative;
+  left: -5px;
+}
+
+.tour__input--wide {
+  width: 150px;
+}
+
+.select__option {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.tour__input--underline {
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.button-submit {
+  padding: 13px 30px;
+}
+
+.contacts {
+  padding: 30px 0 10px 0;
+}
+
+.contacts__title {
+  margin: 0 0 25px 40px;
+}
+
+.contacts-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 45px;
+  width: 100%;
+  border-radius: 15px;
+  background: var(--white);
+}
+
+.contacts-inner--background {
+  background: url(../img/contacts_lagoona-office.jpg) no-repeat right 45px center var(--white);
+  background-size: 653px 528px;
+}
+
+.contacts__list {
+  margin-bottom: 45px;
+  width: 380px;
+}
+
+.contacts__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6% 0;
+  max-width: 100%;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.contacts__item:first-child {
+  padding-top: 0;
+}
+
+.contacts__subtitle {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 100%;
+}
+
+.contacts-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 240px;
+  line-height: 150%;
+}
+
+.contacts-description__tel, .contacts__link {
+  color: var(--laguna-primary);
+}
+
+.contacts-text--mute {
+  color: var(--mute);
+}
+
+.contacts-button {
+  padding: 27px 29px;
+  max-width: 370px;
+  font-weight: 700;
+}
+
+.footer {
+  padding: 10px 0 20px 0;
+}
+
+.container-footer {
+  display: flex;
+  padding: 40px 50px 40px 50px;
+  border-radius: 15px;
+}
+
+.footer-logo {
+  background: url(../img/logo_footer.png) no-repeat right 175px bottom var(--dark-gray);
+}
+
+.footer-copyright__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 100px;
+  width: 320px;
+}
+
+.footer-copyright__item {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 190%;
+  color: var(--white);
+}
+
+.footer-copyright__item:not(:last-child) {
+  margin-bottom: 35px;
+}
+
+.footer-copyright__link, .footer-contacts__tel, .footer-contacts__link {
+  color: var(--laguna-primary);
+}
+
+.footer-contacts__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 360px;
+}
+
+.footer-contacts__item {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--white);
+}
+
+.footer-contacts__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.footer-contacts__address {
+  font-style: normal;
+}
+
+.footer-contacts__tel, .footer-contacts__link {
+  display: block;
+}
+
+.footer-social__list {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  width: 25px;
+}
+
+.footer-social__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.footer-social__icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  opacity: 0.6;
+}
+
+.footer-social__icon--tripadvisor {
+  background-image: url(../img/i_tripadvisor.svg);
+}
+
+.footer-social__icon--twitter {
+  background: url(../img/i_twitter.svg);
+}
+
+.footer-social__icon--facebook {
+  background: url(../img/i_facebook.svg);
+}
+
+.footer-social__icon--vk {
+  background: url(../img/i_vk.svg);
+}
+
+.footer-social__icon--instagram {
+  background: url(../img/i_instagram.svg);
+}
